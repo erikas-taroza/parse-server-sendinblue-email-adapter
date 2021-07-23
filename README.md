@@ -1,9 +1,11 @@
-# parse-server-sendinblue-adapter
+This is a fork from Kira2/parse-server-sendinblue-adapter, the original repo stopped working and maintainance. Now you can use this repo instead.
+
+# @seeck/parse-server-sendinblue-email-adapter
 Used to send Parse Server password reset emails, and verification emails through SendinBlue
 
 ### Installation
 ```
-npm install parse-server-sendinblue-adapter --save
+npm install @seeck/parse-server-sendinblue-email-adapter --save
 ```
 
 ### Configuration
@@ -14,7 +16,7 @@ var api = new ParseServer({
   appName: "My App",
   // The options for the email adapter
   emailAdapter: {
-    module: "parse-server-sendinblue-adapter",
+    module: "@seeck/parse-server-sendinblue-adapter",
     options: {
       // The API key of the SendinBlue account (required)
       // WARNING: USE ENVIRONMENT VARIABLE HERE !!! DO NOT EXPOSE YOUR API_KEY !!!
