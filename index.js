@@ -108,7 +108,8 @@ var sendinBlueAdapter = options => {
       sendEmail.attributes = {
         "APP_NAME": mail.appName,
         "LINK": mail.link,
-        "LINK_SHORT": mail.link.replace( /^https?\:\/\//i, "" )
+        "LINK_SHORT": mail.link.replace( /^https?\:\/\//i, "" ),
+        "USERNAME": mail.user.get( "username" )
       };
 
       return new Promise( ( resolve, reject ) => {
