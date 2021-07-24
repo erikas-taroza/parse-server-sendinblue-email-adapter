@@ -65,6 +65,8 @@ var sendinBlueAdapter = options => {
       result = result.replace( "%APP_NAME%", mail.appName );
       result = result.replace( "%LINK%", mail.link );
       result = result.replace( "%LINK_SHORT%", mail.link.replace( /^https?\:\/\//i, "" ) );
+      result = result.replace( "USERNAME", mail.user.get( "username" ) );
+      result = result.repace( "HOST_URL", options.hostUrl ?? "" );
     }
     return result;
   };
@@ -109,7 +111,8 @@ var sendinBlueAdapter = options => {
         "APP_NAME": mail.appName,
         "LINK": mail.link,
         "LINK_SHORT": mail.link.replace( /^https?\:\/\//i, "" ),
-        "USERNAME": mail.user.get( "username" )
+        "USERNAME": mail.user.get( "username" ),
+        "HOST_URL": options.hostUrl ?? "",
       };
 
       return new Promise( ( resolve, reject ) => {
