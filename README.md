@@ -88,6 +88,9 @@ var api = new ParseServer({
         en: "Hi,<p>You are being asked to confirm the e-mail address {EMAIL} with <b>%APP_NAME%</b></p><p>Click <a href=\"%LINK%\">here</a> to confirm it.</p>",
         fr: "Bonjour,<p>Merci de confirmer l'adresse e-mail {EMAIL} avec <b>%APP_NAME%</b></p><p>Cliquez <a href=\"%LINK%\">ici</a> pour confirmer.</p>"
       },
+      
+      // Pass host url if you needed (optional)
+      hostUrl: serverUrl.replace( mountPath, "" ),
 
       // Optional: A callback function that returns the options used for sending
       // verification and password reset emails. The returned options are merged
