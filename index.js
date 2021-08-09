@@ -112,7 +112,7 @@ var sendinBlueAdapter = options => {
         "LINK": mail.link,
         "LINK_SHORT": mail.link.replace( /^https?\:\/\//i, "" ),
         "USERNAME": mail.user.get( "username" ),
-        "HOST_URL": options.hostUrl ?? "",
+        "HOST_URL": options.hostUrl || "",
       };
 
       return new Promise( ( resolve, reject ) => {
