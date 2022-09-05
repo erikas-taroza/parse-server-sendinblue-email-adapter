@@ -104,7 +104,7 @@ var sendinBlueAdapter = options => {
 
       // construct and send the request to SendinBlue
       var smtpApi = new SendinBlueSdk.TransactionalEmailsApi();
-      var sendEmail = new SendinBlueSdk.SendEmail();
+      var sendEmail = new SendinBlueSdk.SendSmtpEmail();
 
       sendEmail.emailTo = [ email ];
       sendEmail.attributes = {
