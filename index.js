@@ -106,6 +106,10 @@ var sendinBlueAdapter = options => {
       var smtpApi = new SendinBlueSdk.TransactionalEmailsApi();
       var sendEmail = new SendinBlueSdk.SendSmtpEmail();
 
+      var sender = new SendinBlueSdk.SendSmtpEmailSender();
+      sender.name = opts.fromName;
+      sender.email = opts.fromEmail;
+
       sendEmail.emailTo = [ email ];
       sendEmail.attributes = {
         "APP_NAME": mail.appName,
@@ -115,6 +119,7 @@ var sendinBlueAdapter = options => {
         "HOST_URL": options.hostUrl || "",
       };
       sendEmail.messageId = templateId;
+      sendEmail.sender = sender;
 
       return new Promise( ( resolve, reject ) => {
         smtpApi.sendTransacEmail(sendEmail).then( resolve, reject );
