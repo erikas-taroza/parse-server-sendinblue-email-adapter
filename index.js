@@ -110,15 +110,20 @@ var sendinBlueAdapter = options => {
       sender.name = opts.fromName;
       sender.email = opts.fromEmail;
 
-      sendEmail.emailTo = [ email ];
-      sendEmail.attributes = {
+      var to = new SendinBlueSdk.SendSmtpEmailTo();
+      to.email = email;
+
+      sendEmail.to = [ to ];
+      // Set this in your template like so:
+      // http://{{ params.LINK_SHORT }}
+      sendEmail.params = {
         "APP_NAME": mail.appName,
         "LINK": mail.link,
         "LINK_SHORT": mail.link.replace( /^https?\:\/\//i, "" ),
         "USERNAME": mail.user.get( "username" ),
-        "HOST_URL": options.hostUrl || "",
+        "HOST_URL": options.hostUrl || ""
       };
-      sendEmail.messageId = templateId;
+      sendEmail.templateId = templateId;
       sendEmail.sender = sender;
 
       return new Promise( ( resolve, reject ) => {
