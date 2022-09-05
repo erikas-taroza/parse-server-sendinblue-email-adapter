@@ -114,9 +114,10 @@ var sendinBlueAdapter = options => {
         "USERNAME": mail.user.get( "username" ),
         "HOST_URL": options.hostUrl || "",
       };
+      sendEmail.messageId = templateId;
 
       return new Promise( ( resolve, reject ) => {
-        smtpApi.sendTemplate( templateId, sendEmail ).then( resolve, reject );
+        smtpApi.sendTransacEmail(sendEmail).then( resolve, reject );
       } ).catch( ( e ) => { console.log( e ); throw e; } );
     }
 
