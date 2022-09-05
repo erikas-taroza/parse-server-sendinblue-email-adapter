@@ -66,7 +66,7 @@ var sendinBlueAdapter = options => {
       result = result.replace( "%LINK%", mail.link );
       result = result.replace( "%LINK_SHORT%", mail.link.replace( /^https?\:\/\//i, "" ) );
       result = result.replace( "USERNAME", mail.user.get( "username" ) );
-      result = result.repace( "HOST_URL", options.hostUrl || "" );
+      result = result.replace( "HOST_URL", options.hostUrl || "" );
     }
     return result;
   };
